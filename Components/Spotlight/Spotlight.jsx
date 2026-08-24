@@ -1,15 +1,9 @@
-import { ArtPieceCard } from "@/data/ArtPieceCard";
-
-// If your artworks are stored in an Component array such as ArtPieceCard, 
-// you can select a random item like this: 
-// Math.random() * (max - min) + min = 5.95
-// Math.floor(5.95)= 5;
+import Image from "next/image";
 
 function getRandomArtPiece(ArtPiecesCard) {
   const randomIndex = Math.floor(Math.random() * ArtPiecesCard.length);
   return ArtPiecesCard[randomIndex];
 }
-
 
 export default function HomePage() {
    const artPiece = getRandomArtPiece(ArtPiecesCard);
@@ -17,13 +11,15 @@ export default function HomePage() {
 
   return (
     <main>
-      <img
-        src={artPiece.imageSource}
-        alt={artPiece.title}
+     <Image
+        src={ArtPiece.imageSource}
+        alt={ArtPiece.name}
+        width={ArtPiece.dimensions.width}
+        height={ArtPiece.dimensions.height}
+        style={{ width: "100%", height: "auto" }}
       />
-      <p>{artPiece.name}</p>
-      <p>{artPiece.year}</p>
-      <p>{artPiece.genre}</p>
+      <p>{ArtPiece.name}</p>
+      <p>{`by ${ArtPiece.artist}`}</p>
     </main>
   );
 }
