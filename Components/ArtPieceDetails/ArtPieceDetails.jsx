@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ImageArtPiece from "../Image/Image";
+import ImageArtPiece from "../ImageArtPiece/ImageArtPiece";
 
 export default function ArtPieceDetails({ artPiece }) {
   if (!artPiece) return <p>No details found</p>;

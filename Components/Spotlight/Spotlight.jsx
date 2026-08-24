@@ -1,4 +1,4 @@
-import ImageArtPiece from "../Image/Image";
+import ImageArtPiece from "../ImageArtPiece/ImageArtPiece";
 
 function getRandomArtPiece(artPieces) {
   const randomIndex = Math.floor(Math.random() * artPieces.length);

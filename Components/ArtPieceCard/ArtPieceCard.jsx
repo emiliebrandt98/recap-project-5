@@ -1,4 +1,4 @@
-import ImageArtPiece from "../Image/Image";
+import ImageArtPiece from "../ImageArtPiece/ImageArtPiece";
 import Link from "next/link";
 
 export default function ArtPieceCard({ artPiece }) {
