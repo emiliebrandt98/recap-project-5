@@ -1,24 +1,22 @@
-import Image from "next/image";
+import ImageArtPiece from "../ImageArtPiece/ImageArtPiece";
 
-function getRandomArtPiece(artPieceCard) {
-  const randomIndex = Math.floor(Math.random() * artPieceCard.length);
-  return artPieceCard[randomIndex];
+function getRandomArtPiece(artPieces) {
+  const randomIndex = Math.floor(Math.random() * artPieces.length);
+  return artPieces[randomIndex];
 }
 
-export default function HomePage(artPieces) {
-   const artPiece = getRandomArtPiece(artPieces);
+export default function HomePage({ artPieces }) {
+  if (!artPieces || artPieces.length === 0) {
+    return <p>Loading...</p>;
+  }
+
+  const randomArtPiece = getRandomArtPiece(artPieces);
 
   return (
     <main>
-     <Image
-        src={artPiece.imageSource}
-        alt={artPiece.name}
-        width={artPiece.dimensions.width}
-        height={artPiece.dimensions.height}
-        style={{ width: "100%", height: "auto" }}
-      />
-      <p>{artPiece.name}</p>
-      <p>{`by ${artPiece.artist}`}</p>
+      <ImageArtPiece artPiece={randomArtPiece} />
+      <p>{randomArtPiece.name}</p>
+      <p>{`by ${randomArtPiece.artist}`}</p>
     </main>
   );
 }
