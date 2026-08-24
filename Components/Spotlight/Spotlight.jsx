@@ -5,7 +5,12 @@ function getRandomArtPiece(artPieces) {
   return artPieces[randomIndex];
 }
 
-export default function HomePage({ artPieces }) {
+export default function HomePage({ 
+  artPieces,
+  favoriteArtPieces,
+  onToggleFavorite, }) 
+  
+  {
   if (!artPieces || artPieces.length === 0) {
     return <p>Loading...</p>;
   }
@@ -14,7 +19,10 @@ export default function HomePage({ artPieces }) {
 
   return (
     <main>
-      <ImageArtPiece artPiece={randomArtPiece} />
+      <ImageArtPiece 
+       artPiece={randomArtPiece} 
+       isFavorite={isFavorite}
+       onToggleFavorite={onToggleFavorite}/>
       <p>{randomArtPiece.name}</p>
       <p>{`by ${randomArtPiece.artist}`}</p>
     </main>

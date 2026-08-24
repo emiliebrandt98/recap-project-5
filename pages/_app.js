@@ -2,6 +2,9 @@ import GlobalStyle from "../styles";
 import Navigation from "../Components/Navigation/Navigation.jsx";
 import useSWR from "swr";
 
+// import useState
+import { useState } from "react";
+
 const fetcher = async (url) => {
   const response = await fetch(url);
 
@@ -18,8 +21,30 @@ const fetcher = async (url) => {
 
 const url = "https://example-apis.vercel.app/api/art";
 
+
 export default function App({ Component, pageProps }) {
   const { data: artPieces, error, isLoading } = useSWR(url, fetcher);
+
+  // start with empty array
+  const [favorites, setFavorites] = useState([]);
+
+  // onToggleFavorite={toggleFavorite}
+  // favourites // export default function FavoritesPage({favoriteArtPieces, onToggleFavorite}) {
+  function toggleFavorite(artPiece) {
+  setFavorites((currentFavorites) => {
+    const isFavorite = currentFavorites.some(
+      (favorite) => favorite.slug === artPiece.slug
+    );
+
+    if (isFavorite) {
+      return currentFavorites.filter(
+        (favorite) => favorite.slug !== artPiece.slug
+      );
+    }
+
+    return [...currentFavorites, artPiece];
+  });
+}
 
   return (
     <>
@@ -29,6 +54,8 @@ export default function App({ Component, pageProps }) {
         artPieces={artPieces}
         isLoading={isLoading}
         error={error}
+        favoriteArtPieces={favorites}
+        onToggleFavorite={toggleFavorite}
       />
       <Navigation />
     </>
