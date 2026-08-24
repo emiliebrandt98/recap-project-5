@@ -8,7 +8,7 @@ export default function ListArtPieces({ artPieces, isLoading, error }) {
     <ul>
       {artPieces?.map((artPiece) => (
         <li key={artPiece.slug}>
-          <ArtPieceCard artPiece={artPiece} slug={artPiece.slug} />
+          <ArtPieceCard artPiece={artPiece} />
         </li>
       ))}
     </ul>
