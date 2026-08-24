@@ -48,11 +48,7 @@ export default function HomePage() {
 
   return (
     <main>
-     <Image
-        ---- fill img infos ---
-      />
-      <p>{artPiece.name}</p>
-      <p>{`by ${artPiece.artist}`}</p>
+     <ArtpieceCard />
     </main>
   );
 }
