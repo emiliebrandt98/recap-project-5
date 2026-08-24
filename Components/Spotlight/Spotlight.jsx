@@ -6,7 +6,7 @@ function getRandomArtPiece(artPieceCard) {
 }
 š
 export default function HomePage() {
-   const artPiece = getRandomArtPiece(artPiecesCard);
+   const artPiece = getRandomArtPiece(artPieceCard);
 
 
   return (
