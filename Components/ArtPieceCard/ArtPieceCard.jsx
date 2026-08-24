@@ -12,7 +12,7 @@ export default function ArtPieceCard({ piece }) {
         style={{ width: "100%", height: "auto" }}
       />
       <p>{piece.name}</p>
-      <p>{piece.artist}</p>
+      <p>{`by ${piece.artist}`}</p>
     </Link>
   );
 }
