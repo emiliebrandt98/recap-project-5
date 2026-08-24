@@ -6,7 +6,7 @@ export default function ArtPieceDetails({ artPiece }) {
 
   return (
     <div>
-      <Link href={"/Gallery"}>Back to Art Gallery</Link>
+      <Link href={"/gallery"}>Back to Art Gallery</Link>
       <ImageArtPiece artPiece={artPiece} />
       <p>{`"${artPiece.name}" by ${artPiece.artist}`}</p>
       <p>{`created ${artPiece.year}`}</p>

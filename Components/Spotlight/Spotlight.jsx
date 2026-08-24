@@ -10,13 +10,13 @@ export default function HomePage({ artPieces }) {
     return <p>Loading...</p>;
   }
 
-  const artPiece = getRandomArtPiece(artPieces);
+  const randomArtPiece = getRandomArtPiece(artPieces);
 
   return (
     <main>
-      <ImageArtPiece artPiece={artPiece} />
-      <p>{artPiece.name}</p>
-      <p>{`by ${artPiece.artist}`}</p>
+      <ImageArtPiece artPiece={randomArtPiece} />
+      <p>{randomArtPiece.name}</p>
+      <p>{`by ${randomArtPiece.artist}`}</p>
     </main>
   );
 }

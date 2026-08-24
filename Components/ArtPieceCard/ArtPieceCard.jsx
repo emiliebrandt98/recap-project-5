@@ -5,7 +5,7 @@ export default function ArtPieceCard({ artPiece }) {
   return (
     <div>
       <ImageArtPiece artPiece={artPiece} />
-      <Link href={`/Gallery/${artPiece.slug}`}>{artPiece.name}</Link>
+      <Link href={`/gallery/${artPiece.slug}`}>{artPiece.name}</Link>
       <p>{`by ${artPiece.artist}`}</p>
     </div>
   );
