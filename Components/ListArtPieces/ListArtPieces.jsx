@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { ArtPiecePreview } from "../ArtPiecePreview/ArtPiecePreview";
+import ArtPieceCard from "../ArtPieceCard/ArtPieceCard";
 
 const fetcher = async (url) => {
   const response = await fetch(url);
@@ -32,7 +32,7 @@ export default function ListArtPieces() {
     <ul>
       {art.map((piece) => (
         <li key={piece.slug}>
-          <ArtPiecePreview key={piece.slug} piece={piece} />
+          <ArtPieceCard piece={piece} />
         </li>
       ))}
     </ul>
