@@ -1,4 +1,5 @@
 import GlobalStyle from "../styles";
+import Navigation from "../Components/Navigation/Navigation.jsx";
 import useSWR from "swr";
 
 const fetcher = async (url) => {
@@ -29,6 +30,7 @@ export default function App({ Component, pageProps }) {
         isLoading={isLoading}
         error={error}
       />
+      <Navigation />
     </>
   );
 }
