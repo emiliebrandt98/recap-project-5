@@ -4,7 +4,7 @@ function getRandomArtPiece(artPieceCard) {
   const randomIndex = Math.floor(Math.random() * artPieceCard.length);
   return artPieceCard[randomIndex];
 }
-š
+
 export default function HomePage() {
    const artPiece = getRandomArtPiece(artPieceCard);
 
