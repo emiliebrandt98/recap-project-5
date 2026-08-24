@@ -1,18 +1,21 @@
 import Image from "next/image";
-import ArtPieceCard from "Components/ArtPieceCard/ArtPieceCard.jsx"
 
-function getRandomArtPiece(artPieceCard) {
-  const randomIndex = Math.floor(Math.random() * artPieceCard.length);
-  return artPieceCard[randomIndex];
+function getRandomArtPiece(artPieces) {
+  const randomIndex = Math.floor(Math.random() * artPieces.length);
+  return artPieces[randomIndex];
 }
 
-export default function HomePage() {
-   const artPiece = getRandomArtPiece(artPieceCard);
+// artPieces als Prop von _app
+export default function HomePage({ artPieces }) {
+  if (!artPieces || artPieces.length === 0) {
+    return <p>Loading...</p>;
+  }
 
+  const artPiece = getRandomArtPiece(artPieces);
 
   return (
     <main>
-     <Image
+      <Image
         src={artPiece.imageSource}
         alt={artPiece.name}
         width={artPiece.dimensions.width}
