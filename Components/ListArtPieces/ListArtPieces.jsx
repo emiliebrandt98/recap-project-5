@@ -18,7 +18,7 @@ const fetcher = async (url) => {
 const url = "https://example-apis.vercel.app/api/art";
 
 export default function ListArtPieces() {
-  const { data: art, error, isLoading } = useSWR(url, fetcher);
+  const { data: artPieces, error, isLoading } = useSWR(url, fetcher);
 
   if (isLoading) {
     return "loading ...";
@@ -30,9 +30,9 @@ export default function ListArtPieces() {
 
   return (
     <ul>
-      {art.map((piece) => (
-        <li key={piece.slug}>
-          <ArtPieceCard piece={piece} />
+      {artPieces.map((artPiece) => (
+        <li key={artPiece.slug}>
+          <ArtPieceCard artPiece={artPiece} />
         </li>
       ))}
     </ul>

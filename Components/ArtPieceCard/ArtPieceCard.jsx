@@ -1,18 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ArtPieceCard({ piece }) {
+export default function ArtPieceCard({ artPiece }) {
   return (
     <Link href="">
       <Image
-        src={piece.imageSource}
-        alt={piece.name}
-        width={piece.dimensions.width}
-        height={piece.dimensions.height}
+        src={artPiece.imageSource}
+        alt={artPiece.name}
+        width={artPiece.dimensions.width}
+        height={artPiece.dimensions.height}
         style={{ width: "100%", height: "auto" }}
       />
-      <p>{piece.name}</p>
-      <p>{`by ${piece.artist}`}</p>
+      <p>{artPiece.name}</p>
+      <p>{`by ${artPiece.artist}`}</p>
     </Link>
   );
 }
