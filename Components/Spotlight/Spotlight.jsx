@@ -1,14 +1,12 @@
 import Image from "next/image";
-import ArtPieceCard from "Components/ArtPieceCard/ArtPieceCard.jsx"
 
 function getRandomArtPiece(artPieceCard) {
   const randomIndex = Math.floor(Math.random() * artPieceCard.length);
   return artPieceCard[randomIndex];
 }
 
-export default function HomePage() {
-   const artPiece = getRandomArtPiece(artPieceCard);
-
+export default function HomePage(artPieces) {
+   const artPiece = getRandomArtPiece(artPieces);
 
   return (
     <main>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function ArtPieceCard({ artPiece }) {
   return (
-    <Link href="">
+    <Link href={`/art-pieces/${artPiece.slug}`}>
       <Image
         src={artPiece.imageSource}
         alt={artPiece.name}
