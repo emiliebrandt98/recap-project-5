@@ -11,12 +11,3 @@ export default function HomePage ({ Component, pageProps }) {
     </>
   );
 }
-
-
-// <!---CODE -->
-// import Spotlight from "@/Components/Spotlight/Spotlight";
-
-// export default function HomePage() { 
-//   return <Spotlight />;
-// }
-// 
