@@ -1,9 +1,28 @@
+import styled from "styled-components";
+
 export default function ColorPalette({ artPiece }) {
   return (
-    <ul>
+    <StyledList>
       {artPiece.colors.map((color) => (
-        <li key={color} style={{ backgroundColor: color }}></li>
+        <StyledColor
+          key={color}
+          style={{ backgroundColor: color }}
+        ></StyledColor>
       ))}
-    </ul>
+    </StyledList>
   );
 }
+
+const StyledList = styled.ul`
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const StyledColor = styled.li`
+  height: 40px;
+  width: 40px;
+`;
