@@ -30,22 +30,27 @@ export default function App({ Component, pageProps }) {
 
   // onToggleFavorite={toggleFavorite}
   // favourites // export default function FavoritesPage({favoriteArtPieces, onToggleFavorite}) {
-  function toggleFavorite(artPiece) {
-  setFavorites((currentFavorites) => {
-    const isFavorite = currentFavorites.some(
+  function handleToggleFavorite(artPiece) {
+  setFavorites((currentArtPieces) => {
+    const isFavorite = currentArtPieces.some(
       (favorite) => favorite.slug === artPiece.slug
     );
 
     if (isFavorite) {
-      return currentFavorites.filter(
+      return currentArtPieces.filter(
         (favorite) => favorite.slug !== artPiece.slug
       );
     }
 
-    return [...currentFavorites, artPiece];
+    return [...currentArtPieces, artPiece];
   });
 }
 
+// add to Components: 
+// favoriteArtPieces={favorites}
+// onToggleFavorite={toggleFavorite}
+
+// add FavoritePage
   return (
     <>
       <GlobalStyle />
@@ -55,7 +60,7 @@ export default function App({ Component, pageProps }) {
         isLoading={isLoading}
         error={error}
         favoriteArtPieces={favorites}
-        onToggleFavorite={toggleFavorite}
+        onToggleFavorite={handleToggleFavorite}
       />
       <Navigation />
     </>
