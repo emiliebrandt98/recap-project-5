@@ -3,7 +3,7 @@ import Navigation from "../Components/Navigation/Navigation.jsx";
 import useSWR from "swr";
 import useLocalStorageState from "use-local-storage-state";
 
-// API fetchen and Error Handling
+// –––––––––– API fetchen and Error Handling
 const fetcher = async (url) => {
   const response = await fetch(url);
 
@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
     { defaultValue: [] }
   );
 
-  // Handler function
+  // –––––––––– Handler function
   function handleToggleFavorite(slug) {
     // preInfo = current State before update
     setArtPiecesFavorite((currentArtPieces) => {
