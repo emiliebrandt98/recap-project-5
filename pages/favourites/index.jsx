@@ -8,7 +8,7 @@ import Image from "next/image";
 // Each art piece's artist name is displayed.
 // Each art piece has an active favorite button.
 
-export default function FavoritesPage({favoriteArtPieces, onToggleFavorite}) {
+export default function FavoritesPage({isFavorite,favoriteArtPieces, onToggleFavorite}) {
   return (
     <main>
       <h1>Favorites</h1>
