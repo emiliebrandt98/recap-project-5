@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import ArtPieceDetails from "@/Components/ArtPieceDetails/ArtPieceDetails.jsx";
+import ArtPieceDetails from "@/components/ArtPieceDetails/ArtPieceDetails.jsx";
 
 export default function DetailsPage({
   artPieces,

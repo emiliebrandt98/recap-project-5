@@ -1,5 +1,6 @@
-import FavoriteButton from "../FavoriteButton/FavoriteButton";
-import Image from "next/image";
+import FavoriteButton from "@/components/FavoriteButton/FavoriteButton";
+import ImageArtPiece from "@/components/ImageArtPiece/ImageArtPiece";
+import styled from "styled-components";
 
 // All favorite art pieces are displayed in a list format.
 
@@ -8,33 +9,36 @@ import Image from "next/image";
 // Each art piece's artist name is displayed.
 // Each art piece has an active favorite button.
 
-export default function FavoritesPage({favoriteArtPieces, onToggleFavorite}) {
+export default function FavoritesPage({
+  isFavorite,
+  favoriteArtPieces,
+  onToggleFavorite,
+}) {
   return (
     <main>
       <h1>Favorites</h1>
 
       <ul>
-
         {favoriteArtPieces?.map((artPiece) => (
-          <li key={artPiece.slug}>
-            <Image
-              src={artPiece.imageSource}
-              alt={artPiece.name}
-              width={artPiece.dimensions.width}
-              height={artPiece.dimensions.height}
+          <StyledWrapper
+            key={artPiece.slug}
+            $isFavorite={isFavorite(artPiece.slug)}
+          >
+            <FavoriteButton
+              isFavorite={isFavorite(artPiece.slug)}
+              onToggleFavorite={() => onToggleFavorite(artPiece.slug)}
             />
-
+            <ImageArtPiece artPiece={artPiece} />
             <p>{artPiece.name}</p>
             <p>by {artPiece.artist}</p>
-
-            <FavoriteButton
-              artPiece={artPiece}
-              isFavorite={true}
-              onToggleFavorite={onToggleFavorite}
-            />
-          </li>
+          </StyledWrapper>
         ))}
       </ul>
     </main>
   );
 }
+
+const StyledWrapper = styled.li`
+  background-color: ${(props) =>
+    props.$isFavorite ? "lightcoral" : "transparent"};
+`;

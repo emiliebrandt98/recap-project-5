@@ -1,4 +1,4 @@
-import ListArtPieces from "@/Components/ListArtPieces/ListArtPieces";
+import ListArtPieces from "@/components/ListArtPieces/ListArtPieces";
 
 export default function Gallery({
   artPieces,
