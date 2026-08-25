@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 export default function ImageArtPiece({ artPiece }) {
+  if (!artPiece) return null;
   return (
     <Image
       src={artPiece.imageSource}
