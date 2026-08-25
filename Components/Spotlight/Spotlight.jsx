@@ -23,11 +23,9 @@ export default function HomePage({
     }
   }, [artPieces]);
 
-  if (isLoading || randomArtPiece) {
+  if (isLoading || !randomArtPiece) {
     return <p>Loading...</p>;
   }
-
-  // const randomArtPiece = getRandomArtPiece(artPieces);
 
   return (
     <main>

@@ -29,15 +29,21 @@ export default function App({ Component, pageProps }) {
   function handleToggleFavorite(slug) {
     // preInfo = current State before update
     setArtPiecesInfo((prevInfo) => {
-      // search
+      // info = search array to see if a matching artPiece already exists
       const info = prevInfo.find((artPiece) => artPiece.slug === slug);
+      // if artPiece is already inside the array
       if (info) {
+        // map = create a new array
         return prevInfo.map((artPiece) =>
+          // Does the slug fit? Yes: copy object and change isFavorite
           artPiece.slug === slug
             ? { ...artPiece, isFavorite: !artPiece.isFavorite }
-            : artPiece
+            : // Doesn't fit? Yes: object dosen't change
+              artPiece
         );
       }
+      // The artPiece is NOT YET in the state => A new array is created that contains
+      // all previous elements plus a new object at the end.
       return [...prevInfo, { slug, isFavorite: true }];
     });
   }
