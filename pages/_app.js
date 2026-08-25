@@ -41,6 +41,7 @@ export default function App({ Component, pageProps }) {
       return [...prevInfo, { slug, isFavorite: true }];
     });
   }
+  Moin;
 
   return (
     <>
