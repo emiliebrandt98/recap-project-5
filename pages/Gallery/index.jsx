@@ -7,6 +7,7 @@ export default function Gallery({
   onToggleFavorite,
   isFavorite,
 }) {
+  console.log();
   return (
     <div>
       <h1>Art Gallery</h1>

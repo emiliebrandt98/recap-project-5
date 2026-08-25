@@ -1,6 +1,7 @@
 import { Heart } from "lucide-react";
 
 export default function FavoriteButton({ onToggleFavorite, isFavorite }) {
+  console.log();
   return (
     <button
       type="button"
