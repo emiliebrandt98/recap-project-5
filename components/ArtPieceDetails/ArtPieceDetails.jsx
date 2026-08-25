@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ImageArtPiece from "../ImageArtPiece/ImageArtPiece";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
+import ColorPallette from "../ColorPallette/ColorPallette";
 
 export default function ArtPieceDetails({
   artPiece,
@@ -17,6 +18,7 @@ export default function ArtPieceDetails({
         onToggleFavorite={() => onToggleFavorite(artPiece.slug)}
       />
       <ImageArtPiece artPiece={artPiece} />
+      <ColorPallette artPiece={artPiece} />
       <p>{`"${artPiece.name}" by ${artPiece.artist}`}</p>
       <p>{`created ${artPiece.year}`}</p>
       <p>{`Genre: "${artPiece.genre}"`}</p>
