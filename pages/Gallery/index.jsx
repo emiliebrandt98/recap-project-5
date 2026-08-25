@@ -1,6 +1,12 @@
 import ListArtPieces from "@/Components/ListArtPieces/ListArtPieces";
 
-export default function Gallery({ artPieces, isLoading, error }) {
+export default function Gallery({
+  artPieces,
+  isLoading,
+  error,
+  onToggleFavorite,
+  isFavorite,
+}) {
   return (
     <div>
       <h1>Art Gallery</h1>
@@ -8,6 +14,8 @@ export default function Gallery({ artPieces, isLoading, error }) {
         artPieces={artPieces}
         isLoading={isLoading}
         error={error}
+        onToggleFavorite={onToggleFavorite}
+        isFavorite={isFavorite}
       />
     </div>
   );

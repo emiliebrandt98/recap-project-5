@@ -1,7 +1,13 @@
 import { useRouter } from "next/router";
 import ArtPieceDetails from "@/Components/ArtPieceDetails/ArtPieceDetails.jsx";
 
-export default function DetailsPage({ artPieces, isLoading, error }) {
+export default function DetailsPage({
+  artPieces,
+  isLoading,
+  error,
+  isFavorite,
+  onToggleFavorite,
+}) {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -12,5 +18,11 @@ export default function DetailsPage({ artPieces, isLoading, error }) {
 
   if (!currentArtPiece) return <p>Art piece not found</p>;
 
-  return <ArtPieceDetails artPiece={currentArtPiece} />;
+  return (
+    <ArtPieceDetails
+      artPiece={currentArtPiece}
+      isFavorite={isFavorite}
+      onToggleFavorite={onToggleFavorite}
+    />
+  );
 }

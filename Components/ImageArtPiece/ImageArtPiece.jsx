@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-export default function ImageArtPiece({ artPiece, isFavorite, onToggleFavorite }) {
+export default function ImageArtPiece({ artPiece }) {
+  if (!artPiece) return null;
   return (
     <Image
       src={artPiece.imageSource}
@@ -9,8 +10,5 @@ export default function ImageArtPiece({ artPiece, isFavorite, onToggleFavorite }
       height={artPiece.dimensions.height}
       style={{ width: "100%", height: "auto" }}
     />
-     <button onClick={() => onToggleFavorite(artPiece)}>
-        {isFavorite ? "♥" : "♡"}
-      </button>
   );
 }
