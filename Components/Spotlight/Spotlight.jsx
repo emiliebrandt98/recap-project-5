@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import ImageArtPiece from "../ImageArtPiece/ImageArtPiece";
 
@@ -6,17 +7,32 @@ function getRandomArtPiece(artPieces) {
   return artPieces[randomIndex];
 }
 
-export default function HomePage({ artPieces, onToggleFavorite, isFavorite }) {
-  if (!artPieces || artPieces.length === 0) {
+export default function HomePage({
+  artPieces,
+  isLoading,
+  onToggleFavorite,
+  isFavorite,
+}) {
+  const [randomArtPiece, setRandomArtPiece] = useState(null);
+
+  // Once artPieces changes from empty/undefined to loaded data,
+  // select a random art piece.
+  useEffect(() => {
+    if (artPieces && artPieces.length > 0) {
+      setRandomArtPiece(getRandomArtPiece(artPieces));
+    }
+  }, [artPieces]);
+
+  if (isLoading || randomArtPiece) {
     return <p>Loading...</p>;
   }
 
-  const randomArtPiece = getRandomArtPiece(artPieces);
+  // const randomArtPiece = getRandomArtPiece(artPieces);
 
   return (
     <main>
       <FavoriteButton
-        isFavorite={isFavorite}
+        isFavorite={isFavorite(randomArtPiece.slug)}
         onToggleFavorite={() => onToggleFavorite(randomArtPiece.slug)}
       />
       <ImageArtPiece artPiece={randomArtPiece} />

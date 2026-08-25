@@ -10,7 +10,7 @@ export default function ArtPieceCard({
   return (
     <div>
       <FavoriteButton
-        isFavorite={isFavorite}
+        isFavorite={isFavorite(artPiece.slug)}
         onToggleFavorite={() => onToggleFavorite(artPiece.slug)}
       />
       <ImageArtPiece artPiece={artPiece} />
