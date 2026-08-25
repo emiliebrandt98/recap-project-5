@@ -2,7 +2,6 @@ import GlobalStyle from "../styles";
 import Navigation from "../Components/Navigation/Navigation.jsx";
 import useSWR from "swr";
 import useLocalStorageState from "use-local-storage-state";
-import { useState } from "react";
 
 // API fetchen and Error Handling
 const fetcher = async (url) => {
@@ -23,7 +22,10 @@ const url = "https://example-apis.vercel.app/api/art";
 
 export default function App({ Component, pageProps }) {
   const { data: artPieces, error, isLoading } = useSWR(url, fetcher);
-  const [artPiecesInfo, setArtPiecesInfo] = useState([]);
+  const [artPiecesInfo, setArtPiecesInfo] = useLocalStorageState(
+    "artPieceInfo",
+    { defaultValue: [] }
+  );
 
   // Handler function
   function handleToggleFavorite(slug) {
