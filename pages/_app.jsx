@@ -1,5 +1,5 @@
 import GlobalStyle from "../styles";
-import Navigation from "../Components/Navigation/Navigation.jsx";
+import Navigation from "../components/Navigation/Navigation.jsx";
 import useSWR from "swr";
 import useLocalStorageState from "use-local-storage-state";
 
@@ -19,7 +19,6 @@ const fetcher = async (url) => {
 };
 
 const url = "https://example-apis.vercel.app/api/art";
-
 
 export default function App({ Component, pageProps }) {
   const { data: artPieces, error, isLoading } = useSWR(url, fetcher);
@@ -61,32 +60,19 @@ export default function App({ Component, pageProps }) {
     );
   }
 
-  // start with empty array
-  const [favorites, setFavorites] = useState([]);
+  // Returns a filtered array with all complete art piece objects
+  // (including name, artist, imageSource, etc.) whose status is set to isFavorite: true."
+  const favoriteArtPiece = artPieces?.filter((artPiece) =>
+    artPiecesFavorite.some(
+      (favorite) => favorite.slug === artPiece.slug && favorite.isFavorite
+    )
+  );
 
+  // add to Components:
+  // favoriteArtPieces={favorites}
   // onToggleFavorite={toggleFavorite}
-  // favourites // export default function FavoritesPage({favoriteArtPieces, onToggleFavorite}) {
-  function handleToggleFavorite(artPiece) {
-  setFavorites((currentArtPieces) => {
-    const isFavorite = currentArtPieces.some(
-      (favorite) => favorite.slug === artPiece.slug
-    );
 
-    if (isFavorite) {
-      return currentArtPieces.filter(
-        (favorite) => favorite.slug !== artPiece.slug
-      );
-    }
-
-    return [...currentArtPieces, artPiece];
-  });
-}
-
-// add to Components: 
-// favoriteArtPieces={favorites}
-// onToggleFavorite={toggleFavorite}
-
-// add FavoritePage
+  // add FavoritePage
   return (
     <>
       <GlobalStyle />
@@ -97,7 +83,7 @@ export default function App({ Component, pageProps }) {
         error={error}
         isFavorite={isFavorite}
         onToggleFavorite={handleToggleFavorite}
-        artPiecesFavorite={artPiecesFavorite}
+        favoriteArtPieces={favoriteArtPiece}
       />
       <Navigation />
     </>
