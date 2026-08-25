@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import ImageArtPiece from "../ImageArtPiece/ImageArtPiece";
 import Link from "next/link";
@@ -8,7 +9,7 @@ export default function ArtPieceCard({
   isFavorite,
 }) {
   return (
-    <div>
+    <StyledWrapper isFavorite={isFavorite(artPiece.slug)}>
       <FavoriteButton
         isFavorite={isFavorite(artPiece.slug)}
         onToggleFavorite={() => onToggleFavorite(artPiece.slug)}
@@ -16,6 +17,10 @@ export default function ArtPieceCard({
       <ImageArtPiece artPiece={artPiece} />
       <Link href={`/gallery/${artPiece.slug}`}>{artPiece.name}</Link>
       <p>{`by ${artPiece.artist}`}</p>
-    </div>
+    </StyledWrapper>
   );
 }
+
+const StyledWrapper = styled.div`
+  list-style: none;
+`;

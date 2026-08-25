@@ -30,13 +30,13 @@ export default function App({ Component, pageProps }) {
   // Handler function
   function handleToggleFavorite(slug) {
     // preInfo = current State before update
-    setArtPiecesInfo((prevInfo) => {
+    setArtPiecesInfo((currentState) => {
       // info = search array to see if a matching artPiece already exists
-      const info = prevInfo.find((artPiece) => artPiece.slug === slug);
+      const info = currentState.find((artPiece) => artPiece.slug === slug);
       // if artPiece is already inside the array
       if (info) {
         // map = create a new array
-        return prevInfo.map((artPiece) =>
+        return currentState.map((artPiece) =>
           // Does the slug fit? Yes: copy object and change isFavorite
           artPiece.slug === slug
             ? { ...artPiece, isFavorite: !artPiece.isFavorite }
@@ -46,7 +46,7 @@ export default function App({ Component, pageProps }) {
       }
       // The artPiece is NOT YET in the state => A new array is created that contains
       // all previous elements plus a new object at the end.
-      return [...prevInfo, { slug, isFavorite: true }];
+      return [...currentState, { slug, isFavorite: true }];
     });
   }
 
