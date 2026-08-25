@@ -20,6 +20,7 @@ const fetcher = async (url) => {
 
 const url = "https://example-apis.vercel.app/api/art";
 
+
 export default function App({ Component, pageProps }) {
   const { data: artPieces, error, isLoading } = useSWR(url, fetcher);
   const [artPiecesFavorite, setArtPiecesFavorite] = useLocalStorageState(
@@ -60,6 +61,32 @@ export default function App({ Component, pageProps }) {
     );
   }
 
+  // start with empty array
+  const [favorites, setFavorites] = useState([]);
+
+  // onToggleFavorite={toggleFavorite}
+  // favourites // export default function FavoritesPage({favoriteArtPieces, onToggleFavorite}) {
+  function handleToggleFavorite(artPiece) {
+  setFavorites((currentArtPieces) => {
+    const isFavorite = currentArtPieces.some(
+      (favorite) => favorite.slug === artPiece.slug
+    );
+
+    if (isFavorite) {
+      return currentArtPieces.filter(
+        (favorite) => favorite.slug !== artPiece.slug
+      );
+    }
+
+    return [...currentArtPieces, artPiece];
+  });
+}
+
+// add to Components: 
+// favoriteArtPieces={favorites}
+// onToggleFavorite={toggleFavorite}
+
+// add FavoritePage
   return (
     <>
       <GlobalStyle />
