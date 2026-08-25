@@ -9,7 +9,7 @@ export default function ArtPieceCard({
   isFavorite,
 }) {
   return (
-    <StyledWrapper isFavorite={isFavorite(artPiece.slug)}>
+    <StyledWrapper $isFavorite={isFavorite(artPiece.slug)}>
       <FavoriteButton
         isFavorite={isFavorite(artPiece.slug)}
         onToggleFavorite={() => onToggleFavorite(artPiece.slug)}
@@ -22,5 +22,6 @@ export default function ArtPieceCard({
 }
 
 const StyledWrapper = styled.div`
-  list-style: none;
+  background-color: ${(props) =>
+    props.$isFavorite ? "lightcoral" : "transparent"};
 `;
