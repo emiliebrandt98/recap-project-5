@@ -1,4 +1,4 @@
-export const comments = [
+export const initialComments = [
   {
     id: 1,
     slug: "wheat-field-with-cypresses",

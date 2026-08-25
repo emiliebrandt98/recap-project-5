@@ -3,7 +3,8 @@ import ImageArtPiece from "../ImageArtPiece/ImageArtPiece";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 // NEW Components
-import { comments } from "../../data/comments";
+import { initialComments } from "../../data/comments";
+import CommentsList from "../CommentsList/CommentsList";
 import CommentForm from "../CommentForm/CommentForm.jsx";
 import { useState } from "react";
 
@@ -11,13 +12,19 @@ export default function ArtPieceDetails({
   artPiece,
   isFavorite,
   onToggleFavorite,
+
 }) {
 
+  const [comments, setArtPieceComments] = useState(initialComments);
+// const [artPieceComments, setArtPieceComments] = useState(initialComments);
+
 // specific ARRAY artPieceComments for SLUG ArtPieceDetail
-// comments are filtered to create useState arary with SLUG
-  const [artPieceComments, setArtPieceComments] = useState(
-    comments.filter((comment) => comment.slug === artPiece?.slug)
-  );
+// initialComments are filtered to create useState arary with SLUG
+  const artPieceComments = initialComments.filter(
+    (comment) => comment.slug === artPiece?.slug
+);
+  // const filterComments = artPieceComments.filter((comment) => comment.slug === artPiece?.slug )
+  // console.log(artPieceComments);
 
 // handle submit 
   function handleAddComment(commentText) {
@@ -51,17 +58,8 @@ export default function ArtPieceDetails({
      {/* new Component COMMENTS */ }
       <section>
         <h2>Comments</h2>
-        <ul>
-          {artPieceComments.map((comment) => (
-            <li key={comment.id}>
-              <p>{comment.comment}</p>
-              <time>
-                {new Date(comment.date).toLocaleString()}
-              </time>
-            </li>
-          ))}
-        </ul>
-     {/* new Component FORM */ }
+        <CommentsList artPieceComments={artPieceComments}/>
+        {/* new Component FORM */ }
        <CommentForm onAddComment={handleAddComment} />
       </section>
     </div>
