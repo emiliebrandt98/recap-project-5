@@ -13,7 +13,7 @@ export default function ArtPieceDetails({
     <div>
       <Link href={"/gallery"}>Back to Art Gallery</Link>
       <FavoriteButton
-        isFavorite={isFavorite}
+        isFavorite={isFavorite(artPiece.slug)}
         onToggleFavorite={() => onToggleFavorite(artPiece.slug)}
       />
       <ImageArtPiece artPiece={artPiece} />
