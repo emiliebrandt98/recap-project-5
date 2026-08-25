@@ -1,9 +1,9 @@
 import GlobalStyle from "../styles";
-import Navigation from "../Components/Navigation/Navigation.jsx";
+import Navigation from "../components/Navigation/Navigation.jsx";
 import useSWR from "swr";
 import useLocalStorageState from "use-local-storage-state";
 
-// –––––––––– API fetchen and Error Handling
+// API fetchen and Error Handling
 const fetcher = async (url) => {
   const response = await fetch(url);
 
@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
     { defaultValue: [] }
   );
 
-  // –––––––––– Handler function
+  // Handler function
   function handleToggleFavorite(slug) {
     // preInfo = current State before update
     setArtPiecesFavorite((currentArtPieces) => {
@@ -60,6 +60,19 @@ export default function App({ Component, pageProps }) {
     );
   }
 
+  // Returns a filtered array with all complete art piece objects
+  // (including name, artist, imageSource, etc.) whose status is set to isFavorite: true."
+  const favoriteArtPiece = artPieces?.filter((artPiece) =>
+    artPiecesFavorite.some(
+      (favorite) => favorite.slug === artPiece.slug && favorite.isFavorite
+    )
+  );
+
+  // add to Components:
+  // favoriteArtPieces={favorites}
+  // onToggleFavorite={toggleFavorite}
+
+  // add FavoritePage
   return (
     <>
       <GlobalStyle />
@@ -70,7 +83,7 @@ export default function App({ Component, pageProps }) {
         error={error}
         isFavorite={isFavorite}
         onToggleFavorite={handleToggleFavorite}
-        artPiecesFavorite={artPiecesFavorite}
+        favoriteArtPieces={favoriteArtPiece}
       />
       <Navigation />
     </>
