@@ -1,26 +1,37 @@
 import { render, screen } from "@testing-library/react";
 import Spotlight from "./Spotlight";
+import userEvent from "@testing-library/user-event";
 
-
-
-// variable Object artPiece infos
-const artPiece = {
-  name: "Wheat Field with Cypresses",
-  artist: "Vincent van Gogh",
-  imageSource: "/images/wheat-field.jpg",
-  dimensions: {
-    width: 500,
-    height: 400,
+//├── displays randomly selected art piece
+const artPieces = [
+  {
+    slug: "wheat-field-with-cypresses",
+    name: "Wheat Field with Cypresses",
+    artist: "Vincent van Gogh",
+    imageSource: "/images/wheat-field.jpg",
+    dimensions: {
+      width: 500,
+      height: 400,
+    },
   },
-};
+];
 
-
-// test RANDOM ART PIECE
-test("displays a randomly selected art piece", () => {
-  render(<Spotlight artPieces={artPieces} />);
+test("displays a randomly selected art piece", async () => {
+  render(
+    <Spotlight
+      artPieces={artPieces}
+      isLoading={false}
+      isFavorite={() => false}
+      onToggleFavorite={jest.fn()}
+    />
+  );
 
   expect(
-    screen.getByText("Vincent van Gogh")
+    await screen.findByText("Wheat Field with Cypresses")
+  ).toBeInTheDocument();
+
+  expect(
+    screen.getByText("by Vincent van Gogh")
   ).toBeInTheDocument();
 
   expect(
@@ -31,25 +42,26 @@ test("displays a randomly selected art piece", () => {
 });
 
 
-// test ARTIST NAME
-// test("displays the artist of the selected art piece", () => {
 
-// // render Component Spotlight
-//   render(<Spotlight artPiece={artPiece} />);
+// ── calls favorite handler
 
-//   expect(
-//     screen.getByText("Vincent van Gogh")
-//   ).toBeInTheDocument();
-// });
+test("calls onToggleFavorite when favorite button is clicked", async () => {
+  const onToggleFavorite = jest.fn();
 
-// // test ARTIST NAME
-// test("displays the image of the selected art piece", () => {
-//   render(<Spotlight artPiece={artPiece} />);
+  render(
+    <Spotlight
+      artPieces={artPieces}
+      isLoading={false}
+      isFavorite={() => false}
+      onToggleFavorite={onToggleFavorite}
+    />
+  );
 
-//   const image = screen.getByRole("img");
+  const button = await screen.findByRole("button");
 
-//   expect(image).toHaveAttribute(
-//     "alt",
-//     "Wheat Field with Cypresses"
-//   );
-// });
+  await userEvent.click(button);
+
+  expect(onToggleFavorite).toHaveBeenCalledWith(
+    "wheat-field-with-cypresses"
+  );
+});
