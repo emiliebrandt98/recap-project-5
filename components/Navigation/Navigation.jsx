@@ -76,5 +76,6 @@ const StyledLink = styled(Link)`
 
   &:hover {
     background-color: var(--background-color-secondary);
+    color: var(--text-color-hover);
   }
 `;

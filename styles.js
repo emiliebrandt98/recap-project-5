@@ -10,7 +10,8 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: system-ui;
-    background-color: var(--background-page)
+    background-color: var(--background-page);
+    padding: 20px 2rem;
   }
 
   :root{

@@ -33,7 +33,6 @@ const StyledList = styled.ul`
   justify-content: center;
   list-style: none;
   padding: 0;
-  margin: 20px 2em;
 `;
 
 const StyledListItem = styled.li`

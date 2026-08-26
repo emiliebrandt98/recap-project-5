@@ -35,7 +35,7 @@ const StyledCardWrapper = styled.div`
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 1.5rem;
   border-radius: 16px;
   overflow: hidden;
   border: solid 2px var(--background-card);
@@ -58,7 +58,6 @@ const StyledFavoriteButtonWrapper = styled.div`
 const StyledTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
 `;
 
 const StyledLink = styled(Link)`
@@ -74,7 +73,7 @@ const StyledLink = styled(Link)`
 const StyledTitle = styled.h2`
   margin: 0;
   font-size: 1.25rem;
-  line-height: 1.3;
+  line-height: 1.3rem;
 `;
 
 const StyledText = styled.p`
