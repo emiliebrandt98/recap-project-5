@@ -16,7 +16,6 @@ export default function CommentForm({ onAddComment }) {
     // This will focus a form field with the attribute name="comment".
     const comment = event.target.elements.comment.value.trim();
 
-    // if NOT
     if (!comment) return;
 
     onAddComment(comment);
@@ -32,6 +31,7 @@ export default function CommentForm({ onAddComment }) {
         id={commentID}
         name="comment"
         type="text"
+        required
       />
 
       <button type="submit">Send</button>
