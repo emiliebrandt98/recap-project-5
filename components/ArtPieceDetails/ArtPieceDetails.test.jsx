@@ -2,6 +2,7 @@ import ArtPieceDetails from "./ArtPieceDetails";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
+// Important
 jest.mock("use-local-storage-state", () => ({
   __esModule: true,
   default: (key, options) => [options?.defaultValue || [], jest.fn()],
@@ -30,7 +31,7 @@ function isFavorite() {
   return false;
 }
 
-test("renders the art piece details", async () => {
+test("renders the art piece details (Link, Button, Image, Name, Artist, Year and Genre", async () => {
   const onToggleFavorite = jest.fn();
   const user = userEvent.setup();
 
