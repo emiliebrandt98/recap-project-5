@@ -16,7 +16,7 @@ export default function ColorPalette({ artPiece }) {
 const StyledList = styled.ul`
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 0.75rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -25,4 +25,5 @@ const StyledList = styled.ul`
 const StyledColor = styled.li`
   height: 40px;
   width: 40px;
+  border: solid 2px var(--border-tertiary);
 `;

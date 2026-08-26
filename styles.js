@@ -24,6 +24,7 @@ export default createGlobalStyle`
     --text-color-hover: #E1AD01;
     --border-primary: #25373D;
     --border-secondary: #E1AD01;
+    --border-tertiary: #fff8e1;
     --icon-border: #E1AD01;
     --icon-fill: #E1AD01;
   }
