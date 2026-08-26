@@ -19,6 +19,7 @@ export default createGlobalStyle`
     --background-color-secondary: #32484F;
     --background-page: #879497;
     --background-card: #25373D;
+    --background-input: rgba(234, 228, 209, 0.98);
     --text-color-primary: #fff8e1;
     --text-color-secondary: #dfd8bc;
     --text-color-hover: #E1AD01;
