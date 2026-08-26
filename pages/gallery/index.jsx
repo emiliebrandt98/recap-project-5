@@ -9,7 +9,7 @@ export default function Gallery({
   isFavorite,
 }) {
   return (
-    <div>
+    <StyledMain>
       <StyledH1>Art Gallery</StyledH1>
       <ListArtPieces
         artPieces={artPieces}
@@ -18,7 +18,7 @@ export default function Gallery({
         onToggleFavorite={onToggleFavorite}
         isFavorite={isFavorite}
       />
-    </div>
+    </StyledMain>
   );
 }
 
@@ -26,4 +26,8 @@ const StyledH1 = styled.h1`
   font-size: 2rem;
   color: var(--text-color-primary);
   line-height: 2.25rem;
+`;
+
+const StyledMain = styled.main`
+  padding-bottom: 4em;
 `;

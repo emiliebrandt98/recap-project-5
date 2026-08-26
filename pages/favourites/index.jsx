@@ -1,5 +1,4 @@
-import FavoriteButton from "@/components/FavoriteButton/FavoriteButton";
-import ImageArtPiece from "@/components/ImageArtPiece/ImageArtPiece";
+import ArtPieceCard from "@/components/ArtPieceCard/ArtPieceCard";
 import styled from "styled-components";
 
 // All favorite art pieces are displayed in a list format.
@@ -15,30 +14,45 @@ export default function FavoritesPage({
   onToggleFavorite,
 }) {
   return (
-    <main>
-      <h1>Favorites</h1>
+    <StyledMain>
+      <StyledH1>Favorites</StyledH1>
 
-      <ul>
+      <StyledList>
         {favoriteArtPieces?.map((artPiece) => (
-          <StyledWrapper
-            key={artPiece.slug}
-            $isFavorite={isFavorite(artPiece.slug)}
-          >
-            <FavoriteButton
-              isFavorite={isFavorite(artPiece.slug)}
-              onToggleFavorite={() => onToggleFavorite(artPiece.slug)}
+          <StyledListItem key={artPiece.slug}>
+            <ArtPieceCard
+              artPiece={artPiece}
+              onToggleFavorite={onToggleFavorite}
+              isFavorite={isFavorite}
             />
-            <ImageArtPiece artPiece={artPiece} />
-            <p>{artPiece.name}</p>
-            <p>by {artPiece.artist}</p>
-          </StyledWrapper>
+          </StyledListItem>
         ))}
-      </ul>
-    </main>
+      </StyledList>
+    </StyledMain>
   );
 }
 
-const StyledWrapper = styled.li`
-  background-color: ${(props) =>
-    props.$isFavorite ? "lightcoral" : "transparent"};
+const StyledMain = styled.main`
+  padding-bottom: 4em;
+`;
+
+const StyledH1 = styled.h1`
+  font-size: 2rem;
+  color: var(--text-color-primary);
+  line-height: 2.25rem;
+`;
+
+const StyledList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+`;
+
+const StyledListItem = styled.li`
+  /* Nimmt mind. 250px ein und wächst gleichmäßig mit */
+  flex: 1 1 250px;
+  max-width: 500px;
 `;
