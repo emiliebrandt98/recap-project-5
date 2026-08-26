@@ -27,7 +27,7 @@ export default function CommentsList({ comments, artPiece }) {
 
 const StyledList = styled.ul`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   list-style: none;
   padding: 0;
@@ -35,9 +35,6 @@ const StyledList = styled.ul`
 `;
 
 const StyledListItem = styled.li`
-  /* Nimmt mind. 250px ein und wächst gleichmäßig mit */
-  flex: 1 1 250px;
-  max-width: 500px;
   display: flex;
   flex-direction: row;
   align-items: center;
