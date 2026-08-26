@@ -3,7 +3,8 @@ import ImageArtPiece from "../ImageArtPiece/ImageArtPiece";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 // NEW Components
-import { initialComments } from "../../data/comments";
+// import { initialComments } from "../../data/comments";
+// import useLocalStorageState from "use-local-storage-state";
 import CommentsList from "../CommentsList/CommentsList";
 import CommentForm from "../CommentForm/CommentForm.jsx";
 import { useState } from "react";
@@ -15,16 +16,16 @@ export default function ArtPieceDetails({
 
 }) {
 
-  const [comments, setArtPieceComments] = useState(initialComments);
-// const [artPieceComments, setArtPieceComments] = useState(initialComments);
+  const initialComments = []
+
+  // const [comments, setArtPieceComments] = useLocalStorageState("comments", { defaultValue: initialComments});
+const [comments, setComments] = useState(initialComments);
 
 // specific ARRAY artPieceComments for SLUG ArtPieceDetail
 // initialComments are filtered to create useState arary with SLUG
-  const artPieceComments = initialComments.filter(
+  const artPieceComments = comments.filter(
     (comment) => comment.slug === artPiece?.slug
 );
-  // const filterComments = artPieceComments.filter((comment) => comment.slug === artPiece?.slug )
-  // console.log(artPieceComments);
 
 // handle submit 
   function handleAddComment(commentText) {
@@ -35,7 +36,7 @@ export default function ArtPieceDetails({
     date: new Date().toISOString(),
   };
 
-  setArtPieceComments((currentComments) => [
+  setComments((currentComments) => [
     ...currentComments,
     newComment,
   ]);
@@ -57,7 +58,6 @@ export default function ArtPieceDetails({
       <p>{`Genre: "${artPiece.genre}"`}</p>
      {/* new Component COMMENTS */ }
       <section>
-        <h2>Comments</h2>
         <CommentsList artPieceComments={artPieceComments}/>
         {/* new Component FORM */ }
        <CommentForm onAddComment={handleAddComment} />
