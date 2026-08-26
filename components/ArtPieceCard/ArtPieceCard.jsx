@@ -23,5 +23,5 @@ export default function ArtPieceCard({
 
 const StyledWrapper = styled.div`
   background-color: ${(props) =>
-    props.$isFavorite ? "lightcoral" : "transparent"};
+    props.$isFavorite ? "var(--background-card)" : "transparent"};
 `;

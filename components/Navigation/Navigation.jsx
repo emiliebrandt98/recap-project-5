@@ -1,20 +1,35 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 
 export default function Navigation() {
+  const router = useRouter();
+
   return (
     <StyledNavigation>
       <StyledList>
         <StyledListItem>
-          <StyledLink href="/">Spotlight</StyledLink>
+          <StyledLink href="/" $isActive={router.pathname === "/"}>
+            Spotlight
+          </StyledLink>
         </StyledListItem>
 
         <StyledListItem>
-          <StyledLink href="/gallery">Gallery</StyledLink>
+          <StyledLink
+            href="/gallery"
+            $isActive={router.pathname === "/gallery"}
+          >
+            Gallery
+          </StyledLink>
         </StyledListItem>
 
         <StyledListItem>
-          <StyledLink href="/favourites">Favourites</StyledLink>
+          <StyledLink
+            href="/favourites"
+            $isActive={router.pathname === "/favourites"}
+          >
+            Favourites
+          </StyledLink>
         </StyledListItem>
       </StyledList>
     </StyledNavigation>
@@ -28,7 +43,6 @@ const StyledNavigation = styled.nav`
   bottom: 0;
   left: 0;
   width: 100%;
-
   height: 4em;
   background-color: var(--background-color-primary);
   z-index: 1000;
@@ -49,10 +63,6 @@ const StyledList = styled.ul`
 const StyledListItem = styled.li`
   flex-grow: 1;
   height: 100%;
-
-  &:hover {
-    background-color: var(--background-color-secondary);
-  }
 `;
 
 const StyledLink = styled(Link)`
@@ -65,6 +75,6 @@ const StyledLink = styled(Link)`
   height: 100%;
 
   &:hover {
-    text-decoration: underline;
+    background-color: var(--background-color-secondary);
   }
 `;
