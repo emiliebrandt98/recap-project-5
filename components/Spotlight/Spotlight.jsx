@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import ImageArtPiece from "../ImageArtPiece/ImageArtPiece";
 
@@ -34,7 +35,9 @@ export default function HomePage({
         onToggleFavorite={() => onToggleFavorite(randomArtPiece.slug)}
       />
       <ImageArtPiece artPiece={randomArtPiece} />
-      <p>{randomArtPiece.name}</p>
+      <Link href={`/gallery/${randomArtPiece.slug}`}>
+        {randomArtPiece.name}
+      </Link>
       <p>{`by ${randomArtPiece.artist}`}</p>
     </main>
   );

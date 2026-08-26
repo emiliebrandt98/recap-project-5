@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import FavoriteButton from "../FavoriteButton/FavoriteButton";
-import ImageArtPiece from "../ImageArtPiece/ImageArtPiece";
+import FavoriteButton from "../FavoriteButton/FavoriteButton.jsx";
+import ImageArtPiece from "../ImageArtPiece/ImageArtPiece.jsx";
 import Link from "next/link";
 
 export default function ArtPieceCard({
