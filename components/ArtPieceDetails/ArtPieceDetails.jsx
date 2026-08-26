@@ -53,16 +53,14 @@ export default function ArtPieceDetails({
       <StyledTextWrapper>
         <StyledTitle>{`${artPiece.name}`}</StyledTitle>
         <StyledText>{`by ${artPiece.artist}`}</StyledText>
+        <StyledInfo>
+          <StyledSpan>{`Year: ${artPiece.year}`}</StyledSpan>
+          <StyledSpan>{`Genre: ${artPiece.genre}`}</StyledSpan>
+        </StyledInfo>
       </StyledTextWrapper>
-      <StyledInfo>
-        <StyledSpan>{`Year: ${artPiece.year}`}</StyledSpan>
-        <StyledSpan>{`Genre: ${artPiece.genre}`}</StyledSpan>
-      </StyledInfo>
 
-      <section>
-        <CommentsList comments={comments} artPiece={artPiece} />
-        <CommentForm onAddComment={handleAddComment} />
-      </section>
+      <CommentsList comments={comments} artPiece={artPiece} />
+      <CommentForm onAddComment={handleAddComment} />
     </StyledMain>
   );
 }
@@ -70,7 +68,7 @@ export default function ArtPieceDetails({
 const StyledMain = styled.main`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   padding-bottom: 4em;
 `;
 

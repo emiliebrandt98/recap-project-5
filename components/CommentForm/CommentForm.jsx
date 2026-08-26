@@ -39,12 +39,15 @@ export default function CommentForm({ onAddComment }) {
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
 `;
 
 const StyledLabel = styled.label`
-  color: var(--text-color-secondary);
+  margin: 0;
   font-size: 1rem;
+  line-height: 1rem;
+  color: var(--text-color-primary);
+  font-weight: bold;
 `;
 
 const StyledInput = styled.input`
