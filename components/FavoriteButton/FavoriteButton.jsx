@@ -20,6 +20,7 @@ const StyledButton = styled.button`
   background-color: var(--background-color-primary);
   border: solid 2px var(--border-primary);
   padding: 8px;
+  border-radius: 100px;
 
   &:hover {
     background-color: var(--background-color-secondary);
