@@ -1,10 +1,14 @@
 
+import { useId } from 'react';
+
 // The detail view includes an input field for writing a comment.
 // The detail view includes a submit button labeled "Send".
 // After submitting the form, the new comment is added to the list of comments.
 
 
 export default function CommentForm({ onAddComment }) {
+// creates a unique HTML id for the input,
+  const commentID = useId();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -23,10 +27,9 @@ export default function CommentForm({ onAddComment }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="comment">Write a comment</label>
-
+      <label htmlFor={commentID}>Write a comment</label>
       <input
-        id="comment"
+        id={commentID}
         name="comment"
         type="text"
       />
