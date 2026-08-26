@@ -57,6 +57,29 @@ test("displays loading message while loading", () => {
   expect(screen.getByText("Loading...")).toBeInTheDocument();
 });
 
+// -- calls link
+test("links to the detail page", async () => {
+  render(
+    <Spotlight
+      artPieces={artPieces}
+      isLoading={false}
+      isFavorite={() => false}
+      onToggleFavorite={jest.fn()}
+    />
+  );
+
+  const link = await screen.findByRole("link", {
+    name: "Wheat Field with Cypresses",
+  });
+
+  expect(link).toBeInTheDocument();
+
+  expect(link).toHaveAttribute(
+    "href",
+    "/gallery/wheat-field-with-cypresses"
+  );
+});
+
 
 // ── calls favorite handler
 
