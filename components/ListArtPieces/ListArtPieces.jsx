@@ -7,7 +7,7 @@ export default function ListArtPieces({
   onToggleFavorite,
   isFavorite,
 }) {
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p>Loading…</p>;
   if (error) return <p>Failed to load.</p>;
 
   return (
