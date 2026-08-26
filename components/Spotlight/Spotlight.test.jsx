@@ -16,7 +16,7 @@ const artPieces = [
   },
 ];
 
-test("displays a randomly selected art piece", async () => {
+test("displays a random art piece, artist name, image, and link", async () => {
   render(
     <Spotlight
       artPieces={artPieces}
@@ -41,6 +41,21 @@ test("displays a randomly selected art piece", async () => {
   ).toBeInTheDocument();
 });
 
+
+// ── calls loading
+
+test("displays loading message while loading", () => {
+  render(
+    <Spotlight
+      artPieces={[]}
+      isLoading={true}
+      isFavorite={() => false}
+      onToggleFavorite={jest.fn()}
+    />
+  );
+
+  expect(screen.getByText("Loading...")).toBeInTheDocument();
+});
 
 
 // ── calls favorite handler
