@@ -7,6 +7,7 @@ export default function DetailsPage({
   error,
   isFavorite,
   onToggleFavorite,
+  
 }) {
   const router = useRouter();
   const { slug } = router.query;
