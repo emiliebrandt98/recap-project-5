@@ -8,7 +8,7 @@ function getRandomArtPiece(artPieces) {
   return artPieces[randomIndex];
 }
 
-export default function HomePage({
+export default function Spotlight({
   artPieces,
   isLoading,
   onToggleFavorite,
@@ -35,6 +35,7 @@ export default function HomePage({
         onToggleFavorite={() => onToggleFavorite(randomArtPiece.slug)}
       />
       <ImageArtPiece artPiece={randomArtPiece} />
+
       <Link href={`/gallery/${randomArtPiece.slug}`}>
         {randomArtPiece.name}
       </Link>
