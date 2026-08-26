@@ -2,9 +2,6 @@ import Link from "next/link";
 import ImageArtPiece from "../ImageArtPiece/ImageArtPiece";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import ColorPallette from "../ColorPallette/ColorPallette";
-
-// NEW Components
-// import { initialComments } from "../../data/comments";
 import CommentsList from "../CommentsList/CommentsList";
 import CommentForm from "../CommentForm/CommentForm";
 import useLocalStorageState from "use-local-storage-state";
