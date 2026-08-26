@@ -61,6 +61,13 @@ const StyledCardWrapper = styled.div`
   border: solid 2px var(--background-card);
   background-color: ${(props) =>
     props.$isFavorite ? "var(--background-card)" : "transparent"};
+
+  @media (min-width: 768px) {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 2rem;
+    gap: 1.25rem;
+  }
 `;
 
 const StyledImageWrapper = styled.div`

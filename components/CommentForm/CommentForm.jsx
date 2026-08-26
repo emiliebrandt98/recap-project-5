@@ -66,6 +66,7 @@ const StyledTextArea = styled.textarea`
   padding: 0.5rem;
   color: var(--text-color-secondary);
   box-sizing: border-box;
+  font-family: system-ui;
 
   &::placeholder {
     color: var(--text-color-secondary);
