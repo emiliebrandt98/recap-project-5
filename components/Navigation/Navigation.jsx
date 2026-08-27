@@ -67,7 +67,7 @@ const StyledListItem = styled.li`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: var(--text-color-primary);
+  color: var(--text-color-tertiary);
   display: flex;
   align-items: center;
   justify-content: center;

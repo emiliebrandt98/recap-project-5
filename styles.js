@@ -15,18 +15,19 @@ export default createGlobalStyle`
   }
 
   :root{
-    --background-color-primary: #25373D;
-    --background-color-secondary: #32484F;
-    --background-page: #879497;
-    --background-card: #25373D;
+    --background-color-primary: #446e7c;
+    --background-color-secondary: #445f67;
+    --background-page: #f2f2f2;
+    --background-card: rgb(119, 149, 159);
     --background-input: rgba(234, 228, 209, 0.98);
-    --text-color-primary: #fff8e1;
-    --text-color-secondary: #dfd8bc;
-    --text-color-hover: #E1AD01;
-    --border-primary: #25373D;
+    --text-color-primary: #1c282b;
+    --text-color-secondary: #394c51;
+    --text-color-tertiary: #f2f2f2;
+    --text-color-hover: #f7cb3a;
+    --border-primary: #446e7c;
     --border-secondary: #E1AD01;
-    --border-tertiary: #fff8e1;
-    --icon-border: #E1AD01;
-    --icon-fill: #E1AD01;
+    --border-tertiary: #f2f2f2;
+    --icon-border: #f7cb3a;
+    --icon-fill: #f7cb3a;
   }
 `;

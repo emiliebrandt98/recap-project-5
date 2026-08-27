@@ -123,6 +123,7 @@ const StyledInfo = styled.div`
   padding: 16px 1rem;
   color: var(--text-color-secondary);
   border: solid 2px var(--background-card);
+  border-radius: 8px;
 `;
 
 const StyledSpan = styled.span`

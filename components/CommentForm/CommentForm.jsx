@@ -61,7 +61,8 @@ const StyledLabel = styled.label`
 const StyledTextArea = styled.textarea`
   min-height: 2.5rem;
   resize: vertical;
-  border: solid 2px var(--border-tertiary);
+  border: solid 2px var(--border-primary);
+  border-radius: 8px;
   background-color: transparent;
   padding: 0.5rem;
   color: var(--text-color-secondary);
@@ -90,7 +91,8 @@ const StyledButton = styled.button`
   background-color: var(--background-color-primary);
   border: solid 2px var(--border-primary);
   padding: 8px;
-  color: var(--text-color-secondary);
+  border-radius: 8px;
+  color: var(--text-color-tertiary);
   cursor: pointer;
 
   &:hover {

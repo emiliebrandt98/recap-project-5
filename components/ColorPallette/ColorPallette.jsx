@@ -26,4 +26,5 @@ const StyledColor = styled.li`
   height: 40px;
   width: 40px;
   border: solid 2px var(--border-tertiary);
+  border-radius: 8px;
 `;

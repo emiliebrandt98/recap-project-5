@@ -36,7 +36,7 @@ const StyledCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
   border: solid 2px var(--background-card);
   background-color: ${(props) =>
