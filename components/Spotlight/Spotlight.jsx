@@ -52,34 +52,39 @@ export default function HomePage({
 }
 
 const StyledCardWrapper = styled.div`
+  max-height: 90vh;
+  min-height: 0;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1.5rem;
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
   border: solid 2px var(--background-card);
   background-color: ${(props) =>
     props.$isFavorite ? "var(--background-card)" : "transparent"};
 
-  @media (max-width: 640px) {
+  /* @media (max-width: 640px) {
     height: 80vh;
     max-width: 450px;
     margin: 0 auto;
     padding: 2rem;
     gap: 1.25rem;
-  }
+  } */
 `;
 
 const StyledImageWrapper = styled.div`
+  flex: 1;
+  min-height: 0;
   position: relative;
-  width: 100%;
 
   @media (max-width: 640px) {
     & > img {
-    object-fit: cover;
-    height: 60vh;
-    }}
+      object-fit: cover;
+      height: 60vh;
+    }
+  }
 `;
 
 const StyledFavoriteButtonWrapper = styled.div`
@@ -92,6 +97,7 @@ const StyledFavoriteButtonWrapper = styled.div`
 const StyledTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 const StyledLink = styled(Link)`
