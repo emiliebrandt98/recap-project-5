@@ -8,7 +8,9 @@ jest.mock("use-local-storage-state", () => ({
   default: (key, options) => [options?.defaultValue || [], jest.fn()],
 }));
 jest.mock("next/link", () => {
-  return ({ children, href }) => <a href={href}>{children}</a>;
+  return function MockLink({ children, href }) {
+    return <a href={href}>{children}</a>;
+  };
 });
 
 // test need isFavorite, onToggleFavorite and artPiece
