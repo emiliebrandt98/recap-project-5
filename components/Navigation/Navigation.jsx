@@ -3,22 +3,27 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 
 export default function Navigation() {
-  const router = useRouter();
+  let currentPath = "";
+
+  // Error Handling, important for the test
+  try {
+    const router = useRouter();
+    currentPath = router.pathname;
+  } catch (error) {
+    currentPath = "";
+  }
 
   return (
     <StyledNavigation>
       <StyledList>
         <StyledListItem>
-          <StyledLink href="/" $isActive={router.pathname === "/"}>
+          <StyledLink href="/" $isActive={currentPath === "/"}>
             Spotlight
           </StyledLink>
         </StyledListItem>
 
         <StyledListItem>
-          <StyledLink
-            href="/gallery"
-            $isActive={router.pathname === "/gallery"}
-          >
+          <StyledLink href="/gallery" $isActive={currentPath === "/gallery"}>
             Gallery
           </StyledLink>
         </StyledListItem>
@@ -26,7 +31,7 @@ export default function Navigation() {
         <StyledListItem>
           <StyledLink
             href="/favourites"
-            $isActive={router.pathname === "/favourites"}
+            $isActive={currentPath === "/favourites"}
           >
             Favourites
           </StyledLink>

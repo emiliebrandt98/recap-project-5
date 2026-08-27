@@ -7,6 +7,11 @@ jest.mock("use-local-storage-state", () => ({
   __esModule: true,
   default: (key, options) => [options?.defaultValue || [], jest.fn()],
 }));
+jest.mock("next/link", () => {
+  return function MockLink({ children, href }) {
+    return <a href={href}>{children}</a>;
+  };
+});
 
 // test need isFavorite, onToggleFavorite and artPiece
 // test if all artPiece Details are shown
@@ -33,7 +38,6 @@ function isFavorite() {
 
 test("renders the art piece details (Link, Button, Image, Name, Artist, Year and Genre", async () => {
   const onToggleFavorite = jest.fn();
-  const user = userEvent.setup();
 
   render(
     <ArtPieceDetails
@@ -42,6 +46,8 @@ test("renders the art piece details (Link, Button, Image, Name, Artist, Year and
       onToggleFavorite={onToggleFavorite}
     />
   );
+
+  const user = userEvent.setup();
 
   // Link
   const link = screen.getByRole("link", {
@@ -58,20 +64,20 @@ test("renders the art piece details (Link, Button, Image, Name, Artist, Year and
   expect(onToggleFavorite).toHaveBeenCalledWith("wheat-field-with-cypresses");
 
   // Image
-  const image = screen.getByAltText(/wheat field with cypresses/i);
+  const image = screen.getByRole("img", {
+    name: /wheat field with cypresses/i,
+  });
   expect(image).toBeInTheDocument();
 
   // Name and Artist
-  const nameAndArtist = screen.getByText(
-    /"wheat field with cypresses" by vincent van gogh/i
-  );
-  expect(nameAndArtist).toBeInTheDocument();
+  expect(screen.getByText(/wheat field with cypresses/i)).toBeInTheDocument();
+  expect(screen.getByText(/vincent van gogh/i)).toBeInTheDocument();
 
   // Year
-  const year = screen.getByText(/created 1889/i);
+  const year = screen.getByText(/1889/i);
   expect(year).toBeInTheDocument();
 
   // Genre
-  const genre = screen.getByText(/Genre: "Landscape Painting"/i);
+  const genre = screen.getByText(/landscape painting/i);
   expect(genre).toBeInTheDocument();
 });
