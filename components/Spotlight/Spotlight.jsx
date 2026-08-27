@@ -9,7 +9,7 @@ function getRandomArtPiece(artPieces) {
   return artPieces[randomIndex];
 }
 
-export default function HomePage({
+export default function Spotlight({
   artPieces,
   isLoading,
   onToggleFavorite,
