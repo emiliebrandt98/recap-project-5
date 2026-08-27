@@ -8,7 +8,13 @@ export default function ImageArtPiece({ artPiece }) {
       alt={artPiece.name}
       width={artPiece.dimensions.width}
       height={artPiece.dimensions.height}
-      style={{ width: "100%", height: "auto" }}
+      style={{
+        width: "100%",
+        height: "auto",
+        maxHeight: "50vh",
+        objectFit: "contain",
+        alignSelf: "flex-start",
+      }}
     />
   );
 }
